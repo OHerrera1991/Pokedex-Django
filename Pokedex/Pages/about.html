@@ -1,0 +1,140 @@
+  {% extends "home.html" %}
+  {% load static %}
+  <body>
+    {% block contenido %} 
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+
+          <ul class="nav navbar-nav">
+            <li><a href="/Pokedex/home/">Home</a></li>
+            <li><a href="/Pokedex/pokemons">Pokedex</a></li>
+            <li class="active"><a href="/Pokedex/about/">About us!</a></li>
+
+
+            {% if not request.user.is_authenticated %}
+            <li><a href="/Pokedex/login/">Login</a></li>
+            <li><a href="/Pokedex/register/">Sing Up!</a></li>
+            {% endif %}
+
+            {% if request.user.is_authenticated %}
+            <li><a href="/Pokedex/createpokemon/">Pokemon Uploader</a></li>
+            <li><a href="/Pokedex/my_pokemons">My Pokemons</a></li>
+            <li><a></a></li>
+            <li><a></a></li>
+            <li><h3 class="small mb-4 mb-lg-0">Hello {{user.username}}.</h3></li>
+            <li><img src="{{user.avatar.imagen.url}}" style="height: 40px; width: 40px; "><li>
+            <li><a></a></li>
+            <li><a></a></li>
+            <li><a href="/Pokedex/edit_user/">Edit User</a></li> 
+            <li><a href="/Pokedex/logout">Log Out!</a></li> 
+                {% endif %}
+                
+            </ul>
+
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <nav class="jumbo-nav">
+      <div class="navigation-wrapper">
+          <div class="navigation">
+              <div class="header-logo">
+                  <a href="/Pokedex/home/">
+                      <img src="{%static 'images/pokedex.webp'%}" />
+                      
+                  </a>
+              </div>
+          </div>
+
+          <!-- Example row of columns -->
+          <div class="container">
+              <div class="row">
+                  <div class="space">  
+                      <br>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </nav>
+      
+        <!-- Example row of columns -->
+        <nav class="jumbo-nav2">
+          <div class="navigation-wrapper2">
+              <div class="navigation">
+                  <div class="header-logo">
+                          <img src="{%static 'images/about.png'%}" style="max-width: 300px; max-height: 300px; height: auto; width: auto; align-self: center;" />                       
+                      <br>
+                  </div>
+              </div>
+
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="pokeball-wrapper">
+                <img src="{%static 'images/coderhouse_logo.webp'%}" />
+              </div>
+              <div class="enhanced">
+                <h2>Herrera Omar</h2>
+                <img src="{%static 'images/Omar.jpg'%}" style="max-width: 150px; background-color: #fff; padding: 5px;" />
+                <br>
+                <br>
+                <p>- Developer</p>
+                <p>- 31 years</p>
+                <p>  Skills:</p>
+                <br>
+                <p>- Python</p>
+                <p>- Django</p>
+                <p>- C++</p>
+                <p>- HTML5</p>
+                <p>- CSS / Bootstrap</p>
+                <br>
+                <br>                                                           
+                <br>
+                <br>
+                <br>
+                <br>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <img src="{%static 'images/coderhouse.jpg'%}" style="max-width: 300px; max-height: 300px; height: auto; width: auto; align-self: center;" />
+            </div>
+
+            <div class="col-md-4">
+              <div class="pokeball-wrapper">
+                <img src="{%static 'images/coderhouse_logo.webp'%}" />
+              </div>
+              <div class="enhanced">
+                <h2>Herrera Omar</h2>
+                <img src="{%static 'images/Pablo.jpg'%}" style="max-width: 150px; background-color: #fff; padding: 5px;" />
+                <br>
+                <br>
+                <p>- Front end React developer</p>
+                <p>- 32 years</p>
+                <p>  Skills:</p>
+                <br>
+                <p>- JavaScript</p>
+                <p>- React</p>
+                <p>- Python</p>
+                <p>- Django</p>
+                <p>- Linux</p>
+                <p>- HTML5</p>
+                <p>- CSS / Bootstrap</p>
+                <p>- Wordpress / Woocomerce</p>
+                <br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    {% endblock %}
